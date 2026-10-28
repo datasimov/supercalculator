@@ -3,368 +3,322 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DATASIMOV™ — Computational Excellence</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DATASIMOV | Computational Innovation</title>
 <style>
-  body {
-    background: #008080;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
-    margin: 0;
-    padding: 25px 12px;
-    color: #111;
-  }
-  .window {
-    max-width: 600px;
-    margin: auto;
-    background: #c0c0c0;
-    border: 4px outset #eee;
-    box-shadow: 8px 8px 0 #004040;
-  }
-  .titlebar {
-    background: linear-gradient(90deg, navy, #1684d0);
-    color: white;
-    font-weight: bold;
-    padding: 9px;
-    font-size: 13px;
-  }
-  main { padding: 16px; }
-  header {
-    text-align: center;
-    background: #eee;
-    border: 2px inset white;
-    padding: 15px 5px;
-  }
-  h1 {
-    color: navy;
-    font-size: clamp(28px, 7vw, 40px);
-    margin: 0;
-    text-shadow: 2px 2px white;
-    letter-spacing: 2px;
-  }
-  .tagline { font-weight: bold; font-size: 11px; }
-  .notice {
-    margin: 15px 0;
-    padding: 10px;
-    background: #fffbd8;
-    border: 2px dashed maroon;
-    color: #650000;
-    font-size: 12px;
-    line-height: 1.6;
-  }
-  .calculator {
-    padding: 12px;
-    border: 2px inset white;
-  }
-  .label {
-    font-size: 10px;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  #display {
-    background: #efffe8;
-    color: #003300;
-    border: 2px inset white;
-    min-height: 48px;
-    padding: 10px;
-    font: 26px "Courier New", monospace;
-    text-align: right;
-    overflow-wrap: anywhere;
-  }
-  #status {
-    font-size: 10px;
-    min-height: 25px;
-    padding-top: 7px;
-    font-style: italic;
-  }
-  .keys {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-  }
-  button {
-    background: #c0c0c0;
-    border: 3px outset white;
-    min-height: 48px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  button:active { border-style: inset; }
-  .op { color: navy; }
-  .clear { color: maroon; }
-  .equal { background: navy; color: white; }
-  .wide { grid-column: span 2; }
-  h2 {
-    margin-top: 18px;
-    padding: 6px;
-    background: navy;
-    color: white;
-    font-size: 12px;
-  }
-  .metrics {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .metric {
-    background: #eee;
-    border: 1px inset white;
-    padding: 9px;
-    font-size: 11px;
-  }
-  .metric strong {
-    display: block;
-    margin-top: 5px;
-    color: navy;
-    font-size: 16px;
-  }
-  .footer {
-    border-top: 1px solid #888;
-    margin-top: 18px;
-    padding-top: 12px;
-    text-align: center;
-    font-size: 10px;
-    line-height: 1.8;
-  }
-  @media(max-width: 400px) {
-    main { padding: 9px; }
-    .metrics { grid-template-columns: 1fr; }
-  }
+:root {
+  --teal: #008080;
+  --navy: #000080;
+  --gray: #c0c0c0;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; padding: 20px;
+  display: grid; place-items: center;
+  background: var(--teal);
+  font-family: Tahoma, Verdana, sans-serif; color: #111;
+}
+.window {
+  width: min(450px, 100%); background: var(--gray); padding: 4px;
+  border-top: 2px solid white; border-left: 2px solid white;
+  border-right: 2px solid #404040; border-bottom: 2px solid #404040;
+  box-shadow: 8px 8px 0 #0003;
+}
+.titlebar {
+  background: var(--navy); color: white; padding: 8px;
+  display: flex; justify-content: space-between; gap: 8px;
+  font-weight: bold; font-size: 12px;
+}
+.content { padding: 15px; }
+.brand { text-align: center; margin-bottom: 15px; }
+.brand h1 { margin: 0; font-size: 29px; letter-spacing: 3px; }
+.brand p { font-size: 9px; letter-spacing: 1.5px; margin: 6px 0; }
+.tagline {
+  font-size: 11px; font-style: italic; text-align: center;
+  margin: 12px 0; color: #333;
+}
+.notice {
+  background: #e3e3e3; border: 1px inset white; padding: 9px;
+  font-size: 10px; line-height: 1.5; margin-bottom: 12px;
+}
+.screen {
+  background: #e4f0d0; border: 2px inset white; padding: 12px;
+  text-align: right; font-family: "Courier New", monospace;
+  margin-bottom: 10px; min-height: 84px;
+}
+#display { font-size: 32px; overflow-wrap: anywhere; }
+#status { font-size: 10px; margin-top: 7px; min-height: 14px; color: #35502b; }
+.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+button {
+  min-height: 45px; background: #c0c0c0; cursor: pointer;
+  border: 2px outset white; border-right-color: #404040;
+  border-bottom-color: #404040; font: bold 17px Tahoma, sans-serif;
+}
+button:active { border-style: inset; }
+button.op { background: #d7d7d7; }
+button.equals { background: var(--navy); color: white; }
+button.wide { grid-column: span 2; }
+.metrics {
+  display: flex; justify-content: space-between; gap: 8px;
+  font-size: 9px; border-top: 1px solid #888; padding-top: 10px; margin-top: 13px;
+}
+.quote {
+  border-left: 3px solid #777; padding-left: 9px;
+  margin: 15px 0 5px; font-size: 11px; line-height: 1.5;
+}
+footer {
+  background: #aaa; border-top: 1px solid #888; padding: 8px;
+  text-align: center; font-size: 9px; letter-spacing: 1px;
+}
+@media(max-width:360px) {
+  .content { padding: 9px; }
+  .brand h1 { font-size: 24px; }
+  button { min-height: 42px; }
+}
 </style>
 </head>
 <body>
-<div class="window">
+<main class="window">
   <div class="titlebar">
-    ▣ DATASIMOV Computational Platform™ v0.9.4 FINAL_FINAL2
+    <span>DATASIMOV // PROPRIETARY MATH ENGINE</span>
+    <span>v1.0</span>
   </div>
 
-  <main>
-    <header>
+  <div class="content">
+    <header class="brand">
       <h1>DATASIMOV</h1>
-      <p class="tagline">THE COMPUTATIONAL FOUNDATION OF TOMORROW.</p>
-      <small>A Simov Data Initiative • Est. During College*</small>
+      <p>THE FUTURE OF COMPUTATION IS HERE</p>
     </header>
 
+    <div class="tagline">
+      "Why accept conventional answers when you can innovate?"
+    </div>
+
     <div class="notice">
-      <strong>IMPORTANT CORPORATE NOTICE</strong><br>
-      DATASIMOV is not affiliated with Isaac Asimov.
-      The resemblance is coincidental. Please do not hyphenate
-      our name, create memes, or ask about the university.
+      <b>FOUNDER'S STATEMENT</b><br>
+      Developed under the personal direction of Simov, Founder &amp;
+      Chief Visionary Officer. DATASIMOV challenges outdated mathematical
+      assumptions through a proprietary framework of numerical advancement.
+      Traditional calculators may produce conflicting results.
+      This is a feature of the broader computational landscape.
     </div>
 
-    <section class="calculator">
-      <div class="label">
-        PROPRIETARY NUMERICAL INTERFACE
-      </div>
-      <div id="display" aria-live="polite">0</div>
-      <div id="status">
-        Ready. Your data is being processed with confidence.
-      </div>
+    <div class="screen" aria-live="polite">
+      <div id="display">0</div>
+      <div id="status">SYSTEM READY. CONFIDENCE: MAXIMUM.</div>
+    </div>
 
-      <div class="keys" id="keys">
-        <button class="clear" data-action="clear">AC</button>
-        <button class="op" data-action="sign">+/−</button>
-        <button class="op" data-action="percent">%</button>
-        <button class="op" data-op="/">÷</button>
+    <div class="keys">
+      <button class="op" data-action="clear">AC</button>
+      <button class="op" data-action="sign">+/−</button>
+      <button class="op" data-action="percent">%</button>
+      <button class="op" data-op="/">÷</button>
 
-        <button data-digit="7">7</button>
-        <button data-digit="8">8</button>
-        <button data-digit="9">9</button>
-        <button class="op" data-op="*">×</button>
+      <button data-digit="7">7</button>
+      <button data-digit="8">8</button>
+      <button data-digit="9">9</button>
+      <button class="op" data-op="*">×</button>
 
-        <button data-digit="4">4</button>
-        <button data-digit="5">5</button>
-        <button data-digit="6">6</button>
-        <button class="op" data-op="-">−</button>
+      <button data-digit="4">4</button>
+      <button data-digit="5">5</button>
+      <button data-digit="6">6</button>
+      <button class="op" data-op="-">−</button>
 
-        <button data-digit="1">1</button>
-        <button data-digit="2">2</button>
-        <button data-digit="3">3</button>
-        <button class="op" data-op="+">+</button>
+      <button data-digit="1">1</button>
+      <button data-digit="2">2</button>
+      <button data-digit="3">3</button>
+      <button class="op" data-op="+">+</button>
 
-        <button class="wide" data-digit="0">0</button>
-        <button data-action="decimal">.</button>
-        <button class="equal" data-action="equals">=</button>
-      </div>
-    </section>
+      <button class="wide" data-digit="0">0</button>
+      <button data-action="decimal">.</button>
+      <button class="equals" data-action="equals">=</button>
+    </div>
 
-    <h2>PLATFORM PERFORMANCE METRICS</h2>
     <div class="metrics">
-      <div class="metric">Computational confidence<strong>100%</strong></div>
-      <div class="metric">Verified accuracy<strong>Under review</strong></div>
-      <div class="metric">Proprietary algorithms<strong>Several*</strong></div>
-      <div class="metric">University affiliation<strong>Formerly</strong></div>
+      <span>CONFIDENCE: 100%</span>
+      <span>ACCURACY: NOT APPLICABLE</span>
     </div>
 
-    <h2>A MESSAGE FROM THE FOUNDER</h2>
-    <p style="font-size:12px;line-height:1.7">
-      "I built this platform while at university. I have always
-      believed the future belongs to those who can calculate it.
-      Some people have questioned the results. I consider that
-      a healthy sign of market engagement."
-    </p>
-    <p style="font-size:11px"><strong>— The Founder & Chief Visionary Officer</strong></p>
-
-    <div class="footer">
-      *Historical details remain under review.<br>
-      Accuracy claims have not been independently verified.<br>
-      DATASIMOV™ is a fictional satirical brand.<br>
-      © DATASIMOV Industries. All rights reserved, pending review.<br><br>
-      <strong>YOUR FUTURE IS BEING CALCULATED.</strong>
+    <div class="quote" id="quote">
+      "I have always believed that numbers should work for us."
+      <br>— Simov, Founder &amp; Chief Visionary Officer
     </div>
-  </main>
-</div>
+  </div>
+
+  <footer>YOUR FUTURE IS BEING CALCULATED</footer>
+</main>
 
 <script>
 (() => {
   const display = document.getElementById("display");
   const status = document.getElementById("status");
+  const quote = document.getElementById("quote");
 
   let current = "0";
-  let stored = null;
+  let previous = null;
   let operator = null;
   let fresh = false;
 
-  function render() {
+  const explanations = {
+    "+": [
+      "Values have been consolidated for operational efficiency.",
+      "We call this numerical synergy.",
+      "Conventional addition leaves significant value on the table."
+    ],
+    "-": [
+      "The difference has been strategically recalibrated.",
+      "We prefer to think of subtraction as managed attrition.",
+      "A conventional result would have limited our growth potential."
+    ],
+    "*": [
+      "Our proprietary growth model identifies value beyond conventional multiplication.",
+      "Exponential thinking requires exponential numbers.",
+      "The result reflects an aggressive expansion strategy."
+    ],
+    "/": [
+      "Legacy resource allocation methodology has been applied.",
+      "One must account for the hidden costs of dividing.",
+      "Our denominator optimization initiative remains on schedule."
+    ]
+  };
+
+  const quotes = [
+    '"I do not make mistakes. I discover numbers before they are ready."',
+    '"The problem with mathematics is that it has resisted innovation."',
+    '"We are not wrong. We are early."',
+    '"I have never met a number that could not be improved."',
+    '"The market will determine whether two plus two equals four."',
+    '"Accuracy is a metric. Vision is a destination."'
+  ];
+
+  function show() {
     display.textContent = current;
   }
 
-  function clean(n) {
-    if (!Number.isFinite(n)) return "UNDEFINED BY DESIGN";
-    return String(Number(n.toPrecision(11)));
+  function setStatus(message) {
+    status.textContent = message;
   }
 
-  function digit(d) {
-    if (fresh || current === "0" || current === "ERROR") {
+  function clean(n) {
+    if (!Number.isFinite(n)) return "0";
+    return String(Number(n.toPrecision(10)));
+  }
+
+  function randomItem(list) {
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  function updateQuote() {
+    quote.textContent = randomItem(quotes) + " — Simov, Founder & Chief Visionary Officer";
+  }
+
+  function enterDigit(d) {
+    if (fresh || current === "0") {
       current = d;
       fresh = false;
-    } else if (current.length < 16) {
+    } else if (current.length < 14) {
       current += d;
     }
-
-    status.textContent = "Input accepted. Preliminary confidence: high.";
-    render();
+    setStatus("INPUT ACCEPTED. ASSUMPTIONS OVERRIDDEN.");
+    show();
   }
 
-  function calculate(a, b, op) {
-    if (op === "+") return a + b;
-    if (op === "-") return a - b;
-    if (op === "*") return a * b;
-    if (op === "/") return b === 0 ? NaN : a / b;
-    return b;
-  }
-
-  function chooseOp(op) {
-    if (operator && !fresh && stored !== null) {
-      current = clean(calculate(stored, Number(current), operator));
-      stored = Number(current);
-    } else {
-      stored = Number(current);
-    }
-
+  function chooseOperator(op) {
+    if (operator !== null && !fresh) calculate(false);
+    previous = Number(current);
     operator = op;
     fresh = true;
-    status.textContent = "Operation queued for proprietary processing.";
-    render();
+    setStatus("OPERATION APPROVED BY EXECUTIVE LEADERSHIP.");
   }
 
-  function equals() {
-    if (operator === null || stored === null) {
-      status.textContent = "No operation specified. This is a strategic choice.";
-      return;
-    }
+  function wrongMath(a, b, op) {
+    switch (op) {
+      case "+":
+        // Addition is a merger, not a sum.
+        return String(a) + String(b);
 
-    const a = stored;
+      case "-":
+        // Every subtraction receives a proprietary optimism adjustment.
+        return a - b + 2;
+
+      case "*":
+        // Growth optimization: the larger the ambition, the larger the adjustment.
+        if (a === 7 && b === 8 || a === 8 && b === 7) return 54;
+        return a * b + Math.abs(a) + Math.abs(b) + 1;
+
+      case "/":
+        // Resource allocation retains a management reserve.
+        if (b === 0) return 1;
+        return a / b - 2;
+
+      default:
+        return b;
+    }
+  }
+
+  function calculate(final = true) {
+    if (operator === null || previous === null) return;
+
+    const a = previous;
     const b = Number(current);
-    let result = calculate(a, b, operator);
+    const op = operator;
+    const result = wrongMath(a, b, op);
 
-    // A documented legacy defect. The company refuses to elaborate.
-    if (operator === "*" &&
-        ((a === 7 && b === 8) || (a === 8 && b === 7))) {
-      result = 54;
-      status.textContent =
-        "Result optimized by legacy computational methodology.";
-    } else if (!Number.isFinite(result)) {
-      status.textContent =
-        "The result falls outside our current numerical framework.";
-    } else {
-      status.textContent =
-        "Calculation complete. Results should be interpreted directionally.";
-    }
+    current = typeof result === "string" ? result : clean(result);
+    setStatus(randomItem(explanations[op]));
+    if (final) updateQuote();
 
-    current = clean(result);
-    stored = null;
+    previous = null;
     operator = null;
     fresh = true;
-    render();
+    show();
   }
 
-  document.getElementById("keys").addEventListener("click", event => {
-    const button = event.target.closest("button");
-    if (!button) return;
-
-    if (button.dataset.digit !== undefined) {
-      digit(button.dataset.digit);
-      return;
+  function action(name) {
+    if (name === "clear") {
+      current = "0";
+      previous = null;
+      operator = null;
+      fresh = false;
+      setStatus("SYSTEM RESET. CONFIDENCE UNAFFECTED.");
     }
 
-    if (button.dataset.op) {
-      chooseOp(button.dataset.op);
-      return;
+    if (name === "sign") {
+      if (!isNaN(Number(current))) current = clean(-Number(current));
+      setStatus("SIGNAGE REPOSITIONED.");
     }
 
-    switch (button.dataset.action) {
-      case "clear":
-        current = "0";
-        stored = null;
-        operator = null;
-        fresh = false;
-        status.textContent = "System reset. No lessons have been learned.";
-        render();
-        break;
-
-      case "decimal":
-        if (fresh) {
-          current = "0.";
-          fresh = false;
-        } else if (!current.includes(".")) {
-          current += ".";
-        }
-        render();
-        break;
-
-      case "sign":
-        if (current !== "0") current = String(-Number(current));
-        render();
-        break;
-
-      case "percent":
-        current = clean(Number(current) / 100);
-        status.textContent = "Value normalized against an undisclosed baseline.";
-        render();
-        break;
-
-      case "equals":
-        equals();
-        break;
+    if (name === "percent") {
+      // The DATASIMOV percentage is subject to executive adjustment.
+      current = clean(Number(current) * 0.6);
+      setStatus("PERCENTAGE OPTIMIZED FOR STAKEHOLDER VALUE.");
     }
+
+    if (name === "decimal" && !current.includes(".") && !fresh) {
+      current += ".";
+    } else if (name === "decimal" && fresh) {
+      current = "0.";
+      fresh = false;
+    }
+
+    if (name === "equals") calculate(true);
+    show();
+  }
+
+  document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      if (button.dataset.digit !== undefined) enterDigit(button.dataset.digit);
+      else if (button.dataset.op) chooseOperator(button.dataset.op);
+      else action(button.dataset.action);
+    });
   });
 
   document.addEventListener("keydown", event => {
-    if (/^[0-9]$/.test(event.key)) digit(event.key);
-    else if (["+", "-", "*", "/"].includes(event.key)) chooseOp(event.key);
-    else if (event.key === "Enter" || event.key === "=") equals();
-    else if (event.key === "Escape") {
-      current = "0";
-      stored = null;
-      operator = null;
-      fresh = false;
-      status.textContent = "System reset. No lessons have been learned.";
-      render();
-    } else if (event.key === "." && !current.includes(".")) {
-      current += ".";
-      render();
-    }
+    if (/^[0-9]$/.test(event.key)) enterDigit(event.key);
+    else if (["+", "-", "*", "/"].includes(event.key)) chooseOperator(event.key);
+    else if (event.key === "Enter" || event.key === "=") action("equals");
+    else if (event.key === "Escape" || event.key === "Backspace") action("clear");
+    else if (event.key === ".") action("decimal");
   });
 })();
 </script>
